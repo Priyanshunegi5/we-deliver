@@ -70,6 +70,7 @@ const SignUp = () => {
       <Button
         mode="contained"
         style={styles.button}
+        // contentStyle={{ paddingVertical: 10 }}
         className="signbtn"
         onPress={handleSignUp}>
         Sign Up
@@ -125,7 +126,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: 200,
     height: 50,
-    fontSize: 3,
   },
   forgotPassword: {
     textAlign: 'right',

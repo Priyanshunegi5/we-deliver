@@ -1,97 +1,146 @@
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
 
-export default function Page() {
-  const { t } = useTranslation()
+// export default function Page() {
+//   const { t } = useTranslation()
 
-  return <>{t('Sign In')}</>
-}
-// code section strats here ....!
-
-// import React, { useState } from 'react'
-// import { View, Text } from 'react-native'
-// import { TextInput, Button, HelperText, IconButton } from 'react-native-paper'
-// import { MaterialCommunityIcons } from '@expo/vector-icons'
-
-// const SignUp = () => {
-//   const [phoneNumber, setPhoneNumber] = useState('')
-
-//   const handleSignUp = () => {
-//     // Implement your signup logic here
-//     console.log('Phone Number:', phoneNumber)
-//   }
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Hello</Text>
-//       <Text style={styles.subTitle}>Sign in to continue.</Text>
-//       <TextInput
-//         style={styles.input}
-//         value={phoneNumber}
-//         onChangeText={setPhoneNumber}
-//         label="PHONE NUMBER"
-//         keyboardType="phone-pad"
-//       />
-//       <Text style={styles.otpText}>
-//         A OTP will be sent via SMS to verify your identity.
-//       </Text>
-//       <Button mode="contained" style={styles.button} onPress={handleSignUp}>
-//         Continue
-//       </Button>
-//       <Text style={styles.forgotPassword}>Forgot password?</Text>
-//       <View style={styles.socialLogin}>
-//         <Text>or with</Text>
-//         <IconButton
-//           icon="google"
-//           color="#DB4437"
-//           onPress={() => console.log('Sign up with Google')}
-//         />
-//       </View>
-//       <Text style={styles.signInText}>Don't have account? Sign Up Here</Text>
-//     </View>
-//   )
+//   return <>{t('Sign Up')}</>
 // }
 
-// export default SignUp
+// code section starts here...!
+import React, { useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import {
+  TextInput,
+  Button,
+  HelperText,
+  Avatar,
+  IconButton,
+} from 'react-native-paper'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     paddingHorizontal: 30,
-//   },
-//   title: {
-//     fontSize: 30,
-//     fontWeight: 'bold',
-//   },
-//   subTitle: {
-//     fontSize: 16,
-//     marginBottom: 20,
-//   },
-//   input: {
-//     marginBottom: 10,
-//   },
-//   button: {
-//     marginBottom: 10,
-//   },
-//   otpText: {
-//     fontSize: 12,
-//     color: '#A1A1A1',
-//     marginBottom: 15,
-//   },
-//   forgotPassword: {
-//     textAlign: 'right',
-//     marginBottom: 15,
-//   },
-//   socialLogin: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     marginBottom: 15,
-//   },
-//   signInText: {
-//     color: '#007bff',
-//   },
-// })
+/////////////////////////////////////////////////////////////
+const SignIn = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-// //code section ends here ...!
+  const handleSignUp = () => {
+    // Implement your signup logic here
+    console.log('Email:', email)
+    console.log('Password:', password)
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text className="heading" style={styles.title}>
+        Hello
+      </Text>
+      <Text className="subtitles" style={styles.subTitle}>
+        Sign In to continue.
+      </Text>
+
+      {/* user profile starts here ...! */}
+
+      <Avatar.Image
+        size={150}
+        style={styles.avatar}
+        className="mt-20 py-10"
+        // source={require('assets/logos/logo.png')}
+      />
+
+      {/* user profile ends here ...! */}
+
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        label="EMAIL"
+        keyboardType="email-address"
+        autoCapitalize="none"
+        className="emailbox"
+      />
+      <TextInput
+        className="passwordbox"
+        style={styles.input}
+        value={password}
+        onChangeText={setPassword}
+        label="PASSWORD"
+        secureTextEntry={true}
+        right={<TextInput.Right icon="eye-outline" />}
+      />
+      <Button
+        mode="contained"
+        style={styles.button}
+        // contentStyle={{ paddingVertical: 10 }}
+        className="signbtn"
+        onPress={handleSignUp}>
+        Sign In
+      </Button>
+      <HelperText type="error" visible={false}>
+        Email or password is invalid
+      </HelperText>
+      <Text style={styles.forgotPassword}>Forgot password?</Text>
+      <View style={styles.socialLogin}>
+        <Text>or with</Text>
+        <IconButton
+          icon="google"
+          color="#DB4437"
+          onPress={() => console.log('Sign up with Google')}
+        />
+      </View>
+      <Text style={styles.signInText}>Already have account? Sign In Here</Text>
+    </View>
+  )
+}
+
+export default SignIn
+
+const styles = StyleSheet.create({
+  avatar: {
+    marginTop: -120,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 30,
+  },
+
+  title: {
+    marginTop: 150,
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+  subTitle: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  input: {
+    marginBottom: 10,
+    height: 60,
+    width: 300,
+  },
+  button: {
+    color: '#008000',
+    marginBottom: 10,
+    width: 200,
+    height: 50,
+  },
+
+  forgotPassword: {
+    textAlign: 'right',
+    marginBottom: 15,
+  },
+  socialLogin: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  signInText: {
+    color: '#008000',
+  },
+})
+
+// code section ends  here...!
