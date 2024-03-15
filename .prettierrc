@@ -1,0 +1,15 @@
+{
+    "semi": true,
+    "tabWidth": 4,
+    "useTabs": false,
+    "endOfLine": "lf",
+    "printWidth": 100,
+    "singleQuote": true,
+    "proseWrap": "always",
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxSingleQuote": true,
+    "bracketSameLine": false,
+    "sqlKeywordCase": "lower",
+    "editor.formatOnSave": true
+}
