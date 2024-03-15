@@ -3,79 +3,70 @@ import { useTranslation } from 'react-i18next'
 import Wrapper from '@/components/Screen/Wrapper'
 import { StyleSheet, View, Alert, SafeAreaView } from 'react-native'
 import { useState } from 'react'
-import { Surface } from 'react-native-paper';
+import { Surface } from 'react-native-paper'
 // import { i18next } from '@/services/localization/i18next'
 import { Button, Avatar, Text } from 'react-native-paper'
-import LottieView from 'lottie-react-native';
-import { ImageBackground } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import LottieView from 'lottie-react-native'
+import { ImageBackground } from 'react-native'
+import { useTheme } from 'react-native-paper'
 
 const image = require('../../assets/splash/logo.png')
 
 export default function Page() {
-  const theme = useTheme();
+  const theme = useTheme()
 
   // const { t } = useTranslation()
-
-  let pimg: any = image;
-
-  const [show, setShow] = useState(false);
-
-  if (show) {
-    pimg = { uri:'https://images.squarespace-cdn.com/content/v1/601bb91eb4b86828b4d6cf0f/1612729292590-C3I6CP9C272T4D2KDMOP/Copy+of+Welcome+Long.png'}
-  } else {
-    pimg = image
-  }
 
   return (
     <>
       <LottieView
         loop
         autoPlay={true}
-        style={{ marginLeft: -25, marginTop: -170, flex: 1, width: 460, height: 500 }}
+        style={{
+          marginLeft: -25,
+          marginTop: -170,
+          flex: 1,
+          width: 460,
+          height: 500,
+        }}
         source={require('../../assets/lottie/login_lottie.json')}
       />
 
-      <View style={styles.backdrop}>
-      </View>
+      <View style={styles.backdrop}></View>
       <View style={styles.container}>
         <Avatar.Image
           size={150}
           style={styles.avatar}
           className="mt-20 py-10"
-          source={pimg}
+          source={image}
         />
 
         <Text className="font-bold pt-10" variant="displayMedium">
           We Deliver
         </Text>
-
       </View>
 
       <View style={styles.row}>
-
         <Button
-          className='bg-blue-400'
+          className="bg-blue-400"
           mode="contained"
-          contentStyle={{ // <--- HERE-----
+          contentStyle={{
+            // <--- HERE-----
             paddingVertical: 10,
           }}
           onPress={() => {
             // Alert.alert('warning', 'Under Construction!')
-            setShow(!show);
           }}
           style={styles.width100PercentButton}>
           Get Started
         </Button>
       </View>
 
-
       <View className="bg-stone-100 mt-14">
-        <Text className="font-thin p-2 text-center text-xm" >
+        <Text className="font-thin p-2 text-center text-xm">
           By continuing you agree to our Terms of service & Privacy Policy
         </Text>
-
-      </View >
+      </View>
 
       {/* <View style={styles.container}> */}
       {/* 
@@ -139,7 +130,7 @@ const styles = StyleSheet.create({
   backdrop: {
     height: 50,
     marginTop: -50,
-    backgroundColor: '#ffffff75'
+    backgroundColor: '#ffffff75',
   },
   container: {
     flex: 1,

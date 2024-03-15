@@ -9,7 +9,13 @@
 // code section starts here...!
 import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { TextInput, Button, HelperText, IconButton } from 'react-native-paper'
+import {
+  TextInput,
+  Button,
+  HelperText,
+  Avatar,
+  IconButton,
+} from 'react-native-paper'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 /////////////////////////////////////////////////////////////
@@ -38,7 +44,7 @@ const SignUp = () => {
         size={150}
         style={styles.avatar}
         className="mt-20 py-10"
-        source={pimg}
+        // source={require('assets/logos/logo.png')}
       />
 
       {/* user profile ends here ...! */}
@@ -50,8 +56,10 @@ const SignUp = () => {
         label="EMAIL"
         keyboardType="email-address"
         autoCapitalize="none"
+        className="emailbox"
       />
       <TextInput
+        className="passwordbox"
         style={styles.input}
         value={password}
         onChangeText={setPassword}
@@ -59,7 +67,11 @@ const SignUp = () => {
         secureTextEntry={true}
         right={<TextInput.Right icon="eye-outline" />}
       />
-      <Button mode="contained" style={styles.button} onPress={handleSignUp}>
+      <Button
+        mode="contained"
+        style={styles.button}
+        className="signbtn"
+        onPress={handleSignUp}>
         Sign Up
       </Button>
       <HelperText type="error" visible={false}>
@@ -82,6 +94,11 @@ const SignUp = () => {
 export default SignUp
 
 const styles = StyleSheet.create({
+  avatar: {
+    marginTop: -120,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -100,10 +117,15 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 10,
+    height: 60,
+    width: 300,
   },
   button: {
     color: '#008000',
     marginBottom: 10,
+    width: 200,
+    height: 50,
+    fontSize: 3,
   },
   forgotPassword: {
     textAlign: 'right',
