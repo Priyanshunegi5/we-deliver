@@ -22,7 +22,7 @@ export default function Page() {
   const [show, setShow] = useState(false);
 
   if (show) {
-    pimg = { uri: 'https://media.tenor.com/oeGKoo3WA40AAAAM/puneet-superstar-meme-puneet-superstar-meme-template.gif' }
+    pimg = { uri:'https://images.squarespace-cdn.com/content/v1/601bb91eb4b86828b4d6cf0f/1612729292590-C3I6CP9C272T4D2KDMOP/Copy+of+Welcome+Long.png'}
   } else {
     pimg = image
   }
