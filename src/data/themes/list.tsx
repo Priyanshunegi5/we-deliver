@@ -7,15 +7,15 @@ import { lunar } from '@/data/themes/lunar'
  * @var const list
  */
 export const list: Record<string, object> = {
-    // All Themes goes here
-    lunar: {
-        type: 'dark',
-        name: 'Lunar',
-        theme: lunar,
-    },
-    solar: {
-        type: 'light',
-        name: 'solar',
-        theme: solar,
-    }
-};
+  // All Themes goes here
+  lunar: {
+    type: 'dark',
+    name: 'Lunar',
+    theme: lunar,
+  },
+  solar: {
+    type: 'light',
+    name: 'solar',
+    theme: solar,
+  },
+}
